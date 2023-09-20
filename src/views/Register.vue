@@ -49,7 +49,15 @@ export default {
   methods: {
     onSubmit() {
       console.log('submited form')
-      this.$store.commit('registerStart')
+      this.$store
+        .dispatch('register', {
+          email: 'pjparts1@gmial.com',
+          username: 'pjparts1',
+          password: 'pjparts1',
+        })
+        .then((user) => {
+          console.log(user)
+        })
     },
   },
   computed: {

@@ -14,6 +14,7 @@
                 type="text"
                 class="form-control form-control-lg"
                 placeholder="Username"
+                v-model="username"
               />
             </fieldset>
             <fieldset class="form-group">
@@ -21,6 +22,7 @@
                 type="text"
                 class="form-control form-control-lg"
                 placeholder="Email"
+                v-model="email"
               />
             </fieldset>
             <fieldset class="form-group">
@@ -28,6 +30,7 @@
                 type="password"
                 class="form-control form-control-lg"
                 placeholder="Password"
+                v-model="password"
               />
             </fieldset>
             <button
@@ -46,17 +49,26 @@
 <script>
 export default {
   name: 'MvcRegisterPage',
+
+  data() {
+    return {
+      email: '',
+      password: '',
+      username: '',
+    }
+  },
+
   methods: {
     onSubmit() {
       console.log('submited form')
       this.$store
         .dispatch('register', {
-          email: 'pjparts1@gmial.com',
-          username: 'pjparts1',
-          password: 'pjparts1',
+          email: this.email,
+          username: this.username,
+          password: this.password,
         })
-        .then((user) => {
-          console.log(user)
+        .then(() => {
+          this.$router.push({ name: 'home' })
         })
     },
   },

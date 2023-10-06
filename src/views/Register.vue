@@ -86,10 +86,6 @@ export default {
           this.$router.push({ name: 'home' })
         })
     },
-    /* increaseCounter() { */
-    /*   console.log('increaseCounter') */
-    /*   this.$store.commit('increment') */
-    /* } */
   },
 }
 </script>
